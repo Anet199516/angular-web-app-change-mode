@@ -12,6 +12,12 @@ import { AddComponent } from './pages/add/add.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ErrorComponent } from './ui/error/error.component';
+import {FormsModule} from "@angular/forms";
+import {NguiAutoCompleteModule} from "@ngui/auto-complete";
+import {UiService} from "./services/ui/ui.service";
+import {HttpClientModule} from "@angular/common/http";
+import {AngularFireLite} from "angularfire-lite";
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -27,9 +33,13 @@ import { ErrorComponent } from './ui/error/error.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    NguiAutoCompleteModule,
+    HttpClientModule,
+    AngularFireLite.forRoot(environment.config)
   ],
-  providers: [WeatherService],
+  providers: [WeatherService, UiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

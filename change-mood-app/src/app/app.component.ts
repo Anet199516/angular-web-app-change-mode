@@ -1,32 +1,35 @@
-import { Component } from '@angular/core';
-import {Router} from "@angular/router";
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {UiService} from './services/ui/ui.service';
+import {FbService} from './services/fb/fb.service';
+import {Router} from '@angular/router';
+import {Observable, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
   showMenu = false;
   darkModeActive: boolean;
 
   userEmail = '';
+  loggedIn: Observable<any>;
+  sub1: Subscription;
 
-  constructor(public router: Router) {
+  constructor(public ui: UiService, public fb: FbService, public router: Router) {
   }
 
-  // loggedIn = this.fb.isAuth();
-  sub1;
-
   ngOnInit() {
-    // this.sub1 = this.ui.darkModeState.subscribe((value) => {
-    //   this.darkModeActive = value;
-    // });
-    //
-    // this.fb.auth.userData().subscribe((user) => {
-    //   this.userEmail = user.email;
-    // });
+    this.sub1 = this.ui.darkModeState.subscribe((value) => {
+      this.darkModeActive = value;
+    });
 
+    this.fb.auth.userData().subscribe((user) => {
+      this.userEmail = user.email;
+    });
+
+    this.loggedIn = this.fb.isAuth();
   }
 
   toggleMenu() {
@@ -34,16 +37,17 @@ export class AppComponent {
   }
 
   modeToggleSwitch() {
-    // this.ui.darkModeState.next(!this.darkModeActive);
+    this.ui.darkModeState.next(!this.darkModeActive);
+  }
+
+  logout() {
+    this.toggleMenu();
+    this.router.navigateByUrl('/login');
+    this.fb.auth.signout();
   }
 
   ngOnDestroy() {
     this.sub1.unsubscribe();
   }
 
-  logout() {
-    this.toggleMenu();
-    this.router.navigateByUrl('/login');
-    // this.fb.auth.signout();
-  }
 }
