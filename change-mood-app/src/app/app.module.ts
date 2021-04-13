@@ -18,6 +18,10 @@ import {UiService} from "./services/ui/ui.service";
 import {HttpClientModule} from "@angular/common/http";
 import {AngularFireLite} from "angularfire-lite";
 import {environment} from "../environments/environment";
+import {StoreModule} from "@ngrx/store";
+import {metaReducers, reducers} from "./store/app.state";
+import {EffectsModule} from "@ngrx/effects";
+import {LoginEffects} from "./store/login/effects/login.effects";
 
 @NgModule({
   declarations: [
@@ -37,7 +41,11 @@ import {environment} from "../environments/environment";
     FormsModule,
     NguiAutoCompleteModule,
     HttpClientModule,
-    AngularFireLite.forRoot(environment.config)
+    AngularFireLite.forRoot(environment.config),
+    StoreModule.forRoot(reducers, {metaReducers}),
+    EffectsModule.forRoot([
+      LoginEffects
+    ])
   ],
   providers: [WeatherService, UiService],
   bootstrap: [AppComponent]
