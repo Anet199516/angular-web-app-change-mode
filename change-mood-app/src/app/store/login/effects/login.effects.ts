@@ -1,4 +1,4 @@
-import {Actions, Effect, ofType} from "@ngrx/effects";
+import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {Store} from "@ngrx/store";
 import {AppState} from "../../app.state";
 import {FbService} from "../../../services/fb/fb.service";
@@ -11,9 +11,10 @@ export class LoginEffects {
   constructor(private actions$: Actions,
               private store$: Store<AppState>,
               private fireBaseService: FbService,
-              private router: Router) {}
+              private router: Router) {
+  }
 
-  @Effect() login$ = this.actions$.pipe(
+  login$ = createEffect(() => this.actions$.pipe(
     ofType(LoginActions.LoginActionsConfig.LOGIN),
     map((action: LoginActions.login) => action),
     withLatestFrom(this.store$),
@@ -21,8 +22,11 @@ export class LoginEffects {
       return {
         email: action.payload.email,
         password: action.payload.password
-      }}),
+      }
+    }),
     switchMap((payload) => {
+      if (!payload) return;
+
       return this.fireBaseService.signin(payload.email, payload.password)
         .pipe(map(response => {
             if (response == null) return;
@@ -36,5 +40,24 @@ export class LoginEffects {
       console.log('Error during login', err);
       return of(new LoginActions.loginFailed(err))
     })
+  ))
+
+  logout$ = createEffect(() => this.actions$.pipe(
+    ofType(LoginActions.LoginActionsConfig.LOGOUT),
+    map((action: LoginActions.login) => action),
+    switchMap(() => {
+
+      return this.fireBaseService.auth.signout().pipe(
+        map(() => {
+          this.router.navigateByUrl('/login');
+          return new LoginActions.logoutSuccess();
+        })
+      )
+    }),
+    catchError(err => {
+      console.log('Error during logout', err);
+      return of(new LoginActions.logoutFailed(err))
+    })
+    )
   )
 }

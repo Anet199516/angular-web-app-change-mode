@@ -36,6 +36,11 @@ export function loginReducer(state = initialState, action: ActionWithPayload<any
         }
       }
 
+    case LoginActionsConfig.LOGOUT_SUCCESS:
+      return {
+        ...initialState
+      }
+
     default:
       return state;
   }
