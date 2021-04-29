@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {UiService} from "../../services/ui/ui.service";
 import {Subscription} from "rxjs";
 
@@ -7,7 +7,7 @@ import {Subscription} from "rxjs";
   templateUrl: './add-card.component.html',
   styleUrls: ['./add-card.component.css']
 })
-export class AddCardComponent implements OnInit {
+export class AddCardComponent implements OnInit, OnDestroy {
 
   darkMode: boolean;
   sub1: Subscription;

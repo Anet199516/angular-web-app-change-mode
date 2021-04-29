@@ -2,12 +2,18 @@ import {ActionWithPayload} from "../../../types/types";
 
 export enum LoginActionsConfig {
   APP_INIT = '[App] App init',
+
   LOGIN = '[Login] Login',
   LOGIN_SUCCESS = '[Login] Login success',
   LOGIN_FAILED = '[Login] Login failed',
+
   LOGOUT = '[Logout] Try logout',
   LOGOUT_SUCCESS = '[Logout success] Logout success',
   LOGOUT_FAILED = '[Logout failed] Logout failed',
+
+  SIGNUP = '[Sign up] Try sign up',
+  SIGNUP_SUCCESS = '[Sign up success] Sign up success',
+  SIGNUP_FAILED = '[Sign up failed] Sign up failed',
 }
 
 export class initApp implements ActionWithPayload<any> {
@@ -59,12 +65,36 @@ export class logoutFailed implements ActionWithPayload<any> {
   }
 }
 
+export class signUp implements ActionWithPayload<any> {
+  readonly type = LoginActionsConfig.SIGNUP;
+
+  constructor(public payload?: {email: string, password: string}) {
+  }
+}
+
+export class signUpSuccess implements ActionWithPayload<any> {
+  readonly type = LoginActionsConfig.SIGNUP_SUCCESS;
+
+  constructor(public payload?: string) {
+  }
+}
+
+export class signUpFailed implements ActionWithPayload<any> {
+  readonly type = LoginActionsConfig.SIGNUP_FAILED;
+
+  constructor(public payload?: string) {
+  }
+}
+
 export type LoginActions = initApp |
   login |
   loginSuccess |
   loginFailed |
   logout |
   logoutSuccess |
-  logoutFailed
+  logoutFailed |
+  signUp |
+  signUpSuccess |
+  signUpFailed
 
 

@@ -3,6 +3,8 @@ import {UiService} from './services/ui/ui.service';
 import {FbService} from './services/fb/fb.service';
 import {Router} from '@angular/router';
 import {Observable, Subscription} from "rxjs";
+import * as LoginActions from '../app/store/login/actions/login.actions';
+import {Store} from "@ngrx/store";
 
 @Component({
   selector: 'app-root',
@@ -17,10 +19,11 @@ export class AppComponent implements OnInit, OnDestroy {
   loggedIn: Observable<any>;
   sub1: Subscription;
 
-  constructor(public ui: UiService, public fb: FbService, public router: Router) {
+  constructor(public ui: UiService, public fb: FbService, public router: Router, private store: Store) {
   }
 
   ngOnInit() {
+    // move to the store
     this.sub1 = this.ui.darkModeState.subscribe((value) => {
       this.darkModeActive = value;
     });
@@ -42,8 +45,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   logout() {
     this.toggleMenu();
-    this.router.navigateByUrl('/login');
-    this.fb.auth.signout();
+    this.store.dispatch(new LoginActions.logout());
   }
 
   ngOnDestroy() {
