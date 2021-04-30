@@ -15,13 +15,11 @@ export class LoginEffects {
   }
 
   login$ = createEffect(() => this.actions$.pipe(
-    ofType(AuthActions.LoginActionsConfig.LOGIN),
-    map((action: AuthActions.login) => action),
+    ofType(AuthActions.login),
     withLatestFrom(this.store$),
-    map(([action, store]) => {
+    map(([{email, password}, store]) => {
       return {
-        email: action.payload.email,
-        password: action.payload.password
+        email: email, password: password
       }
     }),
     switchMap((payload) => {
@@ -32,43 +30,41 @@ export class LoginEffects {
             if (response == null) return;
 
             this.router.navigateByUrl('');
-            return new AuthActions.loginSuccess({userName: payload.email, uid: response.user.uid});
+            return AuthActions.loginSuccess({userName: payload.email, uid: response.user.uid});
           })
         )
     }),
     catchError(err => {
       console.log('Error during login', err);
-      return of(new AuthActions.loginFailed(`Error during login: ${err}`))
+      return of(AuthActions.loginFailed({err: `Error during login: ${err}`}))
     })
   ))
 
   logout$ = createEffect(() => this.actions$.pipe(
-    ofType(AuthActions.LoginActionsConfig.LOGOUT),
-    map((action: AuthActions.login) => action),
+    ofType(AuthActions.logout),
     switchMap(() => {
 
       return this.fireBaseService.auth.signout().pipe(
         map(() => {
           this.router.navigateByUrl('/login');
-          return new AuthActions.logoutSuccess();
+          return AuthActions.logoutSuccess();
         })
       )
     }),
     catchError(err => {
       console.log('Error during logout', err);
-      return of(new AuthActions.logoutFailed(`Error during logout: ${err}`))
+      return of(AuthActions.logoutFailed({err: `Error during logout: ${err}`}))
     })
     )
   )
 
   signUp$ = createEffect(() => this.actions$.pipe(
-    ofType(AuthActions.LoginActionsConfig.SIGNUP),
-    map((action: AuthActions.signUp) => action),
+    ofType(AuthActions.signUp),
     withLatestFrom(this.store$),
-    map(([action, store]) => {
+    map(([{email, password}, store]) => {
       return {
-        email: action.payload.email,
-        password: action.payload.password
+        email: email,
+        password: password
       }
     }),
     switchMap((payload) => {
@@ -78,13 +74,13 @@ export class LoginEffects {
         map((res) => {
 
           this.router.navigateByUrl('');
-          return new AuthActions.signUpSuccess();
+          return AuthActions.signUpSuccess();
         })
       )
     }),
     catchError(err => {
       console.log('Error during signup', err);
-      return of(new AuthActions.signUpFailed(`Error during signup: ${err}`))
+      return of(AuthActions.signUpFailed({err: `Error during signup: ${err}`}))
     })
   ))
 }

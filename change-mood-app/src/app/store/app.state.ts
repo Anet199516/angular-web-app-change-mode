@@ -8,8 +8,8 @@ export interface AppState {
 }
 
 export const reducers: ActionReducerMap<AppState> = {
-  loginState: fromLoginState.loginReducer,
-  citiesState: fromCityState.cityReducer
+  loginState: fromLoginState.reducer,
+  citiesState: fromCityState.reducer
 }
 
 

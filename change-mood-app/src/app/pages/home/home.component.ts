@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   constructor(private fb: FbService, private store: Store) { }
 
   ngOnInit(): void {
-    this.store.dispatch(new CitiesActions.getCities());
+    this.store.dispatch(CitiesActions.getCities());
 
     this.cities = this.store.select(CitiesSelectors.selectCitiesList);
   }

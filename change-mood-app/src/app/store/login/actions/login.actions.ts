@@ -1,100 +1,52 @@
-import {ActionWithPayload} from "../../../types/types";
+import {createAction, props} from "@ngrx/store";
 
-export enum LoginActionsConfig {
-  APP_INIT = '[App] App init',
+export const initApp = createAction(
+  '[App] App init'
+)
 
-  LOGIN = '[Login] Login',
-  LOGIN_SUCCESS = '[Login] Login success',
-  LOGIN_FAILED = '[Login] Login failed',
+export const login = createAction(
+  '[Login] Login',
+  props<{email: string, password: string}>()
+)
 
-  LOGOUT = '[Logout] Try logout',
-  LOGOUT_SUCCESS = '[Logout success] Logout success',
-  LOGOUT_FAILED = '[Logout failed] Logout failed',
+export const loginSuccess = createAction(
+  '[Login] Login success',
+  props<{userName: string, uid: string}>()
+)
 
-  SIGNUP = '[Sign up] Try sign up',
-  SIGNUP_SUCCESS = '[Sign up success] Sign up success',
-  SIGNUP_FAILED = '[Sign up failed] Sign up failed',
-}
+export const loginFailed = createAction(
+  '[Logout failed] Logout failed',
+  props<{err: string}>()
+)
 
-export class initApp implements ActionWithPayload<any> {
-  public readonly type = LoginActionsConfig.APP_INIT;
+export const logout = createAction(
+  '[Logout] Try logout'
+)
 
-  constructor(public payload?: any) {
-  }
-}
+export const logoutSuccess = createAction(
+  '[Logout] Logout success'
+)
 
-export class login implements ActionWithPayload<any> {
-  readonly type = LoginActionsConfig.LOGIN;
+export const logoutFailed = createAction(
+  '[Logout] Try logout',
+  props<{err: string}>()
+)
 
-  constructor(public payload?: any) {
-  }
-}
 
-export class loginSuccess implements ActionWithPayload<any> {
-  readonly type = LoginActionsConfig.LOGIN_SUCCESS;
+export const signUp = createAction(
+  '[Sign up] Try sign up',
+  props<{email: string, password: string}>()
+)
 
-  constructor(public payload?: any) {
-  }
-}
 
-export class loginFailed implements ActionWithPayload<any> {
-  readonly type = LoginActionsConfig.LOGIN_FAILED;
+export const signUpSuccess = createAction(
+  '[Sign up success] Sign up success'
+)
 
-  constructor(public payload?: string) {
-  }
-}
 
-export class logout implements ActionWithPayload<any> {
-  readonly type = LoginActionsConfig.LOGOUT;
-
-  constructor(public payload?: string) {
-  }
-}
-
-export class logoutSuccess implements ActionWithPayload<any> {
-  readonly type = LoginActionsConfig.LOGOUT_SUCCESS;
-
-  constructor(public payload?: string) {
-  }
-}
-
-export class logoutFailed implements ActionWithPayload<any> {
-  readonly type = LoginActionsConfig.LOGOUT_FAILED;
-
-  constructor(public payload?: string) {
-  }
-}
-
-export class signUp implements ActionWithPayload<any> {
-  readonly type = LoginActionsConfig.SIGNUP;
-
-  constructor(public payload?: {email: string, password: string}) {
-  }
-}
-
-export class signUpSuccess implements ActionWithPayload<any> {
-  readonly type = LoginActionsConfig.SIGNUP_SUCCESS;
-
-  constructor(public payload?: string) {
-  }
-}
-
-export class signUpFailed implements ActionWithPayload<any> {
-  readonly type = LoginActionsConfig.SIGNUP_FAILED;
-
-  constructor(public payload?: string) {
-  }
-}
-
-export type LoginActions = initApp |
-  login |
-  loginSuccess |
-  loginFailed |
-  logout |
-  logoutSuccess |
-  logoutFailed |
-  signUp |
-  signUpSuccess |
-  signUpFailed
+export const signUpFailed = createAction(
+  '[Sign up failed] Sign up failed',
+  props<{err: string}>()
+)
 
 

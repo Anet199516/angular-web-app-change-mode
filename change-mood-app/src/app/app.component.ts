@@ -45,7 +45,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   logout() {
     this.toggleMenu();
-    this.store.dispatch(new LoginActions.logout());
+    this.store.dispatch(LoginActions.logout());
   }
 
   ngOnDestroy() {

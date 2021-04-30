@@ -27,7 +27,7 @@ export class SignupComponent implements OnInit, OnDestroy {
 
   // registration
   signup(e) {
-    this.store.dispatch(new AuthActions.signUp({
+    this.store.dispatch(AuthActions.signUp({
       email: e.target.email.value,
       password: e.target.password.value
     }));

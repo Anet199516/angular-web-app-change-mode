@@ -1,6 +1,6 @@
-import {ActionWithPayload} from "../../../types/types";
-import {LoginActionsConfig} from '../actions/login.actions';
+import * as AuthActions from '../actions/login.actions';
 import * as model from '../../../app.model';
+import {Action, createReducer, on} from "@ngrx/store";
 
 export interface LoginState {
   login: model.ILogin;
@@ -15,53 +15,21 @@ const initialState: LoginState = <LoginState> {
   },
 };
 
-export function loginReducer(state = initialState, action: ActionWithPayload<any>): LoginState {
-  switch (action.type) {
+const loginReducer = createReducer(
+  initialState,
+  on(AuthActions.loginSuccess,
+    ((state, {userName, uid}) => ({...state, login: {...state.login, userName, uid} }))),
 
-    case LoginActionsConfig.LOGIN_SUCCESS:
-      return {
-        ...state,
-        login: {
-          ...state.login,
-          userName: action.payload.userName,
-          uid: action.payload.uid,
-        }
-      }
+  on(AuthActions.loginFailed,
+    ((state, {err}) => ({...state, login: {...state.login, isLoginFailed: true, errorMessage: err}}))),
 
-    case LoginActionsConfig.LOGIN_FAILED:
-      return {
-        ...state,
-        login: {
-          ...state.login,
-          isLoginFailed: true,
-          errorMessage: action.payload
-        }
-      }
+  on(AuthActions.logoutSuccess, (() => ({...initialState}))),
 
-    case LoginActionsConfig.LOGOUT_SUCCESS:
-      return {
-        ...initialState
-      }
+  on(AuthActions.loginFailed, ((state, {err}) => ({...state, login: {...state.login, errorMessage: err}}))),
 
-    case LoginActionsConfig.LOGOUT_FAILED:
-      return {
-        ...state,
-        login: {
-          ...state.login,
-          errorMessage: action.payload
-        }
-      }
+  on(AuthActions.signUpFailed, ((state, {err}) => ({...state, login: {...state.login, errorMessage: err}})))
+)
 
-    case LoginActionsConfig.SIGNUP_FAILED:
-      return {
-        ...state,
-        login: {
-          ...state.login,
-          errorMessage: action.payload
-        }
-      }
-
-    default:
-      return state;
-  }
+export function reducer(state: LoginState | undefined, action: Action) {
+  return loginReducer(state, action);
 }

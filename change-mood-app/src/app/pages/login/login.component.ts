@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   login(e) {
-    this.store.dispatch(new AuthActions.login({
+    this.store.dispatch(AuthActions.login({
       email: e.target.email.value,
       password: e.target.password.value
     }));
