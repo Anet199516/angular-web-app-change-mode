@@ -1,27 +1,37 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { BrowserModule } from '@angular/platform-browser';
 
+import {MatTableModule} from '@angular/material/table';
+
+import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {EffectsModule} from '@ngrx/effects';
+import {StoreModule} from '@ngrx/store';
+import {AngularFireLite} from 'angularfire-lite';
+import {environment} from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
-import { WeatherCardComponent } from './ui/weather-card/weather-card.component';
-import { AddCardComponent } from './ui/add-card/add-card.component';
-import {WeatherService} from "./services/weather/weather.service";
-import {DetailsComponent} from "./pages/details-component/details.component";
 import { AddComponent } from './pages/add/add.component';
+import {DetailsComponent} from './pages/details-component/details.component';
+import { ExampleTableComponent } from './pages/example-table/example-table.component';
+import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import {GameTableService} from './services/game-table/game-table.service';
+import {UiService} from './services/ui/ui.service';
+import {WeatherService} from './services/weather/weather.service';
+import {metaReducers, reducers} from './store/app.state';
+import {CityEffects} from './store/cities/effects/city.effects';
+import {LoginEffects} from './store/login/effects/login.effects';
+import { AddCardComponent } from './ui/add-card/add-card.component';
 import { ErrorComponent } from './ui/error/error.component';
-import {FormsModule} from "@angular/forms";
-import {NguiAutoCompleteModule} from "@ngui/auto-complete";
-import {UiService} from "./services/ui/ui.service";
-import {HttpClientModule} from "@angular/common/http";
-import {AngularFireLite} from "angularfire-lite";
-import {environment} from "../environments/environment";
-import {StoreModule} from "@ngrx/store";
-import {metaReducers, reducers} from "./store/app.state";
-import {EffectsModule} from "@ngrx/effects";
-import {LoginEffects} from "./store/login/effects/login.effects";
+import { WeatherCardComponent } from './ui/weather-card/weather-card.component';
+import { SmartImagePreviewComponent } from './components/smart-image-preview/smart-image-preview.component';
+import { CustomToggleComponent } from './components/custom-toggle/custom-toggle.component';
+import { CustomRadioButtonsComponent } from './components/custom-radio-buttons/custom-radio-buttons.component';
 
 @NgModule({
   declarations: [
@@ -33,21 +43,30 @@ import {LoginEffects} from "./store/login/effects/login.effects";
     AddComponent,
     LoginComponent,
     SignupComponent,
-    ErrorComponent
+    ErrorComponent,
+    ExampleTableComponent,
+    SmartImagePreviewComponent,
+    CustomToggleComponent,
+    CustomRadioButtonsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NguiAutoCompleteModule,
     HttpClientModule,
+    HttpClientJsonpModule,
     AngularFireLite.forRoot(environment.config),
     StoreModule.forRoot(reducers, {metaReducers}),
     EffectsModule.forRoot([
-      LoginEffects
-    ])
+      CityEffects, LoginEffects,
+    ]),
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatSlideToggleModule,
+    MatRadioModule
   ],
-  providers: [WeatherService, UiService],
-  bootstrap: [AppComponent]
+  providers: [WeatherService, UiService, GameTableService],
+  // tslint:disable-next-line:object-literal-sort-keys
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -1,0 +1,7 @@
+<div>
+  <mat-radio-group>
+    <mat-radio-button [checked]="label.checked"
+                      (click)="$event.stopPropagation()"
+                      *ngFor="let label of labelsList" [value]="label">{{label.name}}</mat-radio-button>
+  </mat-radio-group>
+</div>

@@ -1,0 +1,192 @@
+[
+  {
+    "name": "Banner",
+    "children": [
+      {
+        "bannerName": "Main banner",
+        "images": [
+          {"pc":  "pc"},
+          {"tablet":  "tablet"},
+          {"mobile":  "mobile"}
+        ]
+      },
+      {
+        "bannerName": "Home banner",
+        "images": [
+          {"pc":  "pc"},
+          {"tablet":  "tablet"},
+          {"mobile":  "mobile"}
+        ]
+      },
+      {
+        "bannerName": "Flower banner",
+        "images": [
+          {"pc":  "pc"},
+          {"tablet":  "tablet"},
+          {"mobile":  "mobile"}
+        ]
+      }
+    ],
+    "percentage": "50%",
+    "dateCreated": "9/04/2021",
+    "createdBy": "Eden",
+    "lastUpdatedBy": "Eden",
+    "visible": "true",
+    "modeIcon": [
+      {"name": "Circle", "checked":  "true"},
+      {"name": "Rectangle", "checked":  "false"}
+    ]
+  },
+  {
+    "name": "Quick Links",
+    "children": [
+      {
+        "quickLinkName": "Game",
+        "images": [
+          {"pc":  "pc"},
+          {"tablet":  "tablet"},
+          {"mobile":  "mobile"}
+        ]
+      },
+      {
+        "quickLinkName": "Bingo",
+        "images": [
+          {"pc":  "pc"},
+          {"tablet":  "tablet"},
+          {"mobile":  "mobile"}
+        ]
+      },
+      {
+        "quickLinkName": "Casino",
+        "images": [
+          {"pc":  "pc"},
+          {"tablet":  "tablet"},
+          {"mobile":  "mobile"}
+        ]
+      }
+    ],
+    "percentage": "30%",
+    "dateCreated": "9/06/2021",
+    "createdBy": "Anna",
+    "lastUpdatedBy": "Anna",
+    "visible": "true",
+    "modeIcon": [
+      {"name": "Circle", "checked":  "false"},
+      {"name": "Rectangle", "checked":  "true"}
+    ]
+  },
+  {
+    "name": "Upcoming Games",
+    "children": [
+      {
+        "gameName": "See",
+        "images": [
+          {"pc":  "pc"},
+          {"tablet":  "tablet"},
+          {"mobile":  "mobile"}
+        ]
+      },
+      {
+        "gameName": "Catch cat",
+        "images": [
+          {"pc":  "pc"},
+          {"tablet":  "tablet"},
+          {"mobile":  "mobile"}
+        ]
+      },
+      {
+        "gameName": "Flower game",
+        "images": [
+          {"pc":  "pc"},
+          {"tablet":  "tablet"},
+          {"mobile":  "mobile"}
+        ]
+      }
+    ],
+    "percentage": "10%",
+    "dateCreated": "9/06/2021",
+    "createdBy": "Iryna",
+    "lastUpdatedBy": "Iryna",
+    "visible": "false",
+    "modeIcon": [
+      {"name": "Circle", "checked":  "false"},
+      {"name": "Rectangle", "checked":  "true"}
+    ]
+  },
+  {
+    "name": "Recently played",
+    "children": [
+      {
+        "recentlyGameName": "Captain",
+        "images": [
+          {"pc":  "pc"},
+          {"tablet":  "tablet"},
+          {"mobile":  "mobile"}
+        ]
+      },
+      {
+        "gameName": "Jungle",
+        "images": [
+          {"pc":  "pc"},
+          {"tablet":  "tablet"},
+          {"mobile":  "mobile"}
+        ]
+      },
+      {
+        "gameName": "Earth",
+        "images": [
+          {"pc":  "pc"},
+          {"tablet":  "tablet"},
+          {"mobile":  "mobile"}
+        ]
+      }
+    ],
+    "percentage": "80%",
+    "dateCreated": "03/09/2021",
+    "createdBy": "Pasha",
+    "lastUpdatedBy": "Pasha",
+    "visible": "true",
+    "modeIcon": [
+      {"name": "Circle", "checked":  "true"},
+      {"name": "Rectangle", "checked":  "false"}
+    ]
+  },
+  {
+    "name": "Smart Images",
+    "children": [
+      {
+        "recentlyGameName": "Captain",
+        "images": [
+          {"pc":  "pc"},
+          {"tablet":  "tablet"},
+          {"mobile":  "mobile"}
+        ]
+      },
+      {
+        "gameName": "Jungle",
+        "images": [
+          {"pc":  "pc"},
+          {"tablet":  "tablet"},
+          {"mobile":  "mobile"}
+        ]
+      },
+      {
+        "gameName": "Earth",
+        "images": [
+          {"pc":  "pc"},
+          {"tablet":  "tablet"},
+          {"mobile":  "mobile"}
+        ]
+      }
+    ],
+    "percentage": "40%",
+    "dateCreated": "03/06/2020",
+    "createdBy": "Bohdan",
+    "lastUpdatedBy": "Bohdan",
+    "visible": "false",
+    "modeIcon": [
+      {"name": "Circle", "checked":  "true"},
+      {"name": "Rectangle", "checked":  "false"}
+    ]
+  }
+]

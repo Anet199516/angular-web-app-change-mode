@@ -1,0 +1,86 @@
+:host ::ng-deep tr {
+  margin: 0.5rem;
+  background-color: white;
+}
+
+.main-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/**
+Table
+*/
+.main-container .table-wrapper table {
+  width: 90%;
+  height: 60vh;
+  margin: auto;
+  padding: 0 1rem 2rem 1rem;
+  border-radius: 10px;
+  border-collapse: separate;
+  border-spacing:0 15px;
+  background: lightgray;
+  overflow: auto;
+}
+
+/**
+Table ---> tr
+*/
+/deep/ table thead tr.mat-header-row {
+  background-color: transparent;
+}
+
+/deep/ table tbody tr.mat-row {
+  cursor: pointer;
+}
+
+/**
+Table --> th
+*/
+/deep/ table thead tr th.mat-header-cell {
+  border-bottom-style: none;
+}
+
+.table-wrapper {
+  height: 87vh;
+  width: 90vw;
+  background-color: #fff;
+  display: flex;
+  margin-top: -4rem;
+  overflow: auto;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  /*background: lightgray;*/
+}
+
+ td .mat-cell {
+  vertical-align: top;
+  padding: 1rem;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.expanded-wrapper {
+  overflow: hidden;
+  margin-top: 2rem;
+}
+

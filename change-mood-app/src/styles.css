@@ -8,6 +8,11 @@ body {
   overflow-x: hidden;
 }
 
+/deep/  table {
+  border-collapse: separate !important;
+  border-spacing:0 25px;
+}
+
 .ngui-auto-complete > ul {
   box-shadow: 0 0 2rem rgba(0, 0, 255, 0.3) !important;
   border: none !important;
@@ -83,3 +88,6 @@ body {
   }
 
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
