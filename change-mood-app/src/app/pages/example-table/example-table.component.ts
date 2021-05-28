@@ -18,6 +18,7 @@ import {TableTypes} from '../../types/table-types';
 })
 export class ExampleTableComponent implements OnInit {
   public dataSource: TableTypes[];
+  public mockupData: TableTypes[];
   public columnsToDisplay = ['name', 'description', 'percentage', 'dateCreated', 'createdBy', 'lastUpdatedBy', 'visible', 'modeIcon'];
   public expandedElement: TableTypes | null;
 
@@ -31,7 +32,8 @@ export class ExampleTableComponent implements OnInit {
         return null;
       }
 
-      this.dataSource = res;
+      this.mockupData = res;
+      this.dataSource = this.mockupData;
     }, ((error) => throwError(error)));
   }
 

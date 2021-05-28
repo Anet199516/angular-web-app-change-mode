@@ -1,6 +1,6 @@
 import * as AuthActions from '../actions/login.actions';
 import * as model from '../../../app.model';
-import {Action, createReducer, on} from "@ngrx/store";
+import {Action, createReducer, on} from '@ngrx/store';
 
 export interface LoginState {
   login: model.ILogin;
@@ -29,6 +29,7 @@ const loginReducer = createReducer(
 
   on(AuthActions.signUpFailed, ((state, {err}) => ({...state, login: {...state.login, errorMessage: err}})))
 )
+
 
 export function reducer(state: LoginState | undefined, action: Action) {
   return loginReducer(state, action);

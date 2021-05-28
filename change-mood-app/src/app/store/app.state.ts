@@ -1,15 +1,18 @@
 import * as fromLoginState from '../store/login/reducers/login.reducer';
 import * as fromCityState from '../store/cities/reducers/city.reducer';
-import {ActionReducer, ActionReducerMap, MetaReducer} from "@ngrx/store";
+import * as fromTableState from '../store/table-practise/reducers/table.reducers';
+import {ActionReducer, ActionReducerMap, MetaReducer} from '@ngrx/store';
 
 export interface AppState {
   loginState: fromLoginState.LoginState;
   citiesState: fromCityState.CityState;
+  tableState: fromTableState.TableState;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
   loginState: fromLoginState.reducer,
-  citiesState: fromCityState.reducer
+  citiesState: fromCityState.reducer,
+  tableState: fromTableState.reducer
 }
 
 

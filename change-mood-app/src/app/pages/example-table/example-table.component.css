@@ -6,6 +6,7 @@
 .main-container {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -24,6 +25,24 @@ Table
   border-spacing:0 15px;
   background: lightgray;
   overflow: auto;
+}
+
+.table-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-wrapper div {
+  margin: 0 2rem 2rem 0;
+  align-self: flex-end;
+}
+
+.table-wrapper div button {
+  width: 6rem;
+}
+
+.table-wrapper div button:first-child {
+  margin-right: 2rem;
 }
 
 /**
