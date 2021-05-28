@@ -1,0 +1,10 @@
+<mat-list role="list">
+  <mat-list-item *ngFor="let item of data">
+    <div class="item-container">
+      <mat-icon>delete_forever</mat-icon>
+      <span class="item-name">{{item.name}}</span>
+    </div>
+
+    <app-custom-lightbox [imagesData]="item.images"></app-custom-lightbox>
+  </mat-list-item>
+</mat-list>

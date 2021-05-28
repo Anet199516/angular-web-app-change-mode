@@ -1,0 +1,4 @@
+<div *ngFor="let image of imagesData; let i=index">
+  <span>{{image.device}}</span>
+  <img [src]="image.thumb" (click)="open($event, i)" />
+</div>

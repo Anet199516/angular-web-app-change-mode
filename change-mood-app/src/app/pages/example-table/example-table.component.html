@@ -12,17 +12,23 @@
 
       <!-- Desc -->
       <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef> Description </th>
-        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        <th mat-header-cell *matHeaderCellDef> Images </th>
+
+          <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let element">
+            <div class="expanded-wrapper" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+              <app-list-entities [data]="element.description"></app-list-entities>
+            </div>
+            </td>
+          </ng-container>
       </ng-container>
 
       <!-- Percentage -->
       <ng-container matColumnDef="percentage">
         <th mat-header-cell *matHeaderCellDef> Percentage </th>
         <td mat-cell *matCellDef="let element">
-<!--          <span>Something text!!!</span>-->
-          <div style="background-color: antiquewhite" class="expanded-wrapper" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-            <app-smart-image-preview></app-smart-image-preview>
+          <div class="expanded-wrapper" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+            {{element.percentage}}
           </div>
         </td>
       </ng-container>
@@ -30,19 +36,31 @@
       <!-- Created Date -->
       <ng-container matColumnDef="dateCreated">
         <th mat-header-cell *matHeaderCellDef> Created Date </th>
-        <td mat-cell *matCellDef="let element"> {{element.dateCreated}} </td>
+        <td mat-cell *matCellDef="let element">
+          <div class="expanded-wrapper" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+            {{element.dateCreated}}
+          </div>
+        </td>
       </ng-container>
 
       <!-- Created By -->
       <ng-container matColumnDef="createdBy">
         <th mat-header-cell *matHeaderCellDef> Created By </th>
-        <td mat-cell *matCellDef="let element"> {{element.createdBy}} </td>
+        <td mat-cell *matCellDef="let element">
+          <div class="expanded-wrapper" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+            {{element.createdBy}}
+          </div>
+        </td>
       </ng-container>
 
       <!-- Last Updated By -->
       <ng-container matColumnDef="lastUpdatedBy">
         <th mat-header-cell *matHeaderCellDef> Last Updated By </th>
-        <td mat-cell *matCellDef="let element"> {{element.lastUpdatedBy}} </td>
+        <td mat-cell *matCellDef="let element">
+          <div class="expanded-wrapper" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+            {{element.lastUpdatedBy}}
+          </div>
+        </td>
       </ng-container>
 
       <!-- Visible -->

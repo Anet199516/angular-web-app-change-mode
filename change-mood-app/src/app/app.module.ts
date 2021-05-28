@@ -1,4 +1,7 @@
 import { NgModule } from '@angular/core';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +17,7 @@ import {AngularFireLite} from 'angularfire-lite';
 import {environment} from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {CustomLightBoxModule} from './components/custom-lightbox/custom-lightbox.module';
 import { AddComponent } from './pages/add/add.component';
 import {DetailsComponent} from './pages/details-component/details.component';
 import { ExampleTableComponent } from './pages/example-table/example-table.component';
@@ -29,9 +33,9 @@ import {LoginEffects} from './store/login/effects/login.effects';
 import { AddCardComponent } from './ui/add-card/add-card.component';
 import { ErrorComponent } from './ui/error/error.component';
 import { WeatherCardComponent } from './ui/weather-card/weather-card.component';
-import { SmartImagePreviewComponent } from './components/smart-image-preview/smart-image-preview.component';
 import { CustomToggleComponent } from './components/custom-toggle/custom-toggle.component';
 import { CustomRadioButtonsComponent } from './components/custom-radio-buttons/custom-radio-buttons.component';
+import { ListEntitiesComponent } from './components/list-entities/list-entities.component';
 
 @NgModule({
   declarations: [
@@ -45,9 +49,9 @@ import { CustomRadioButtonsComponent } from './components/custom-radio-buttons/c
     SignupComponent,
     ErrorComponent,
     ExampleTableComponent,
-    SmartImagePreviewComponent,
     CustomToggleComponent,
     CustomRadioButtonsComponent,
+    ListEntitiesComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,9 +65,15 @@ import { CustomRadioButtonsComponent } from './components/custom-radio-buttons/c
       CityEffects, LoginEffects,
     ]),
     BrowserAnimationsModule,
+    // Material Angular
     MatTableModule,
     MatSlideToggleModule,
-    MatRadioModule
+    MatRadioModule,
+    MatListModule,
+    MatDividerModule,
+    MatIconModule,
+
+    CustomLightBoxModule
   ],
   providers: [WeatherService, UiService, GameTableService],
   // tslint:disable-next-line:object-literal-sort-keys

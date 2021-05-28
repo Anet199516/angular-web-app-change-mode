@@ -1,13 +1,14 @@
 // tslint:disable-next-line:interface-name
 export interface TableTypes {
   name: string;
-  children: ISmartImages[];
+  description: IEntitiesData[];
   percentage: string;
   dateCreated: string;
   createdBy: string;
   lastUpdatedBy: string;
   visible: string;
   modeIcon: IModeIcon[];
+  id: string;
 }
 
 export interface IModeIcon {
@@ -15,11 +16,9 @@ export interface IModeIcon {
   checked: boolean;
 }
 
-export interface ISmartImages {
-  bannerName: string;
+export interface IEntitiesData {
+  name: string;
   images: [
-    {pc: string},
-    {tablet: string},
-    {mobile: string},
+    {device: string, thumb: string},
   ];
 }

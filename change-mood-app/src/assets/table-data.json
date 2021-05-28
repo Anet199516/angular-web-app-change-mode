@@ -1,29 +1,30 @@
 [
   {
     "name": "Banner",
-    "children": [
+    "id": "111",
+    "description": [
       {
-        "bannerName": "Main banner",
+        "name": "Main banner",
         "images": [
-          {"pc":  "pc"},
-          {"tablet":  "tablet"},
-          {"mobile":  "mobile"}
+          {"device": "Pc", "thumb": "/assets/lightbox/poppies.jpg"},
+          {"device": "Tablet", "thumb": "/assets/lightbox/berries.jpg"},
+          {"device": "Mobile", "thumb": "/assets/lightbox/fog.jpg"}
         ]
       },
       {
-        "bannerName": "Home banner",
+        "name": "Back banner",
         "images": [
-          {"pc":  "pc"},
-          {"tablet":  "tablet"},
-          {"mobile":  "mobile"}
+          {"device": "Pc", "thumb": "/assets/lightbox/poppies.jpg"},
+          {"device": "Tablet", "thumb": "/assets/lightbox/tree.jpg"},
+          {"device": "Mobile", "thumb": "/assets/lightbox/fog.jpg"}
         ]
       },
       {
-        "bannerName": "Flower banner",
+        "name": "Easter banner",
         "images": [
-          {"pc":  "pc"},
-          {"tablet":  "tablet"},
-          {"mobile":  "mobile"}
+          {"device": "Pc", "thumb": "/assets/lightbox/fog.jpg"},
+          {"device": "Tablet", "thumb": "/assets/lightbox/tree.jpg"},
+          {"device": "Mobile", "thumb": "/assets/lightbox/poppies.jpg"}
         ]
       }
     ],
@@ -39,29 +40,30 @@
   },
   {
     "name": "Quick Links",
-    "children": [
+    "id": "222",
+    "description": [
       {
-        "quickLinkName": "Game",
+        "name": "Game",
         "images": [
-          {"pc":  "pc"},
-          {"tablet":  "tablet"},
-          {"mobile":  "mobile"}
+          {"device": "Pc", "thumb": "/assets/lightbox/nature.jpg"},
+          {"device": "Tablet", "thumb": "/assets/lightbox/cat1.jpg"},
+          {"device": "Mobile", "thumb": "/assets/lightbox/cat2.jpg"}
         ]
       },
       {
-        "quickLinkName": "Bingo",
+        "name": "Bingo",
         "images": [
-          {"pc":  "pc"},
-          {"tablet":  "tablet"},
-          {"mobile":  "mobile"}
+          {"device": "Pc", "thumb": "/assets/lightbox/cat1.jpg"},
+          {"device": "Tablet", "thumb": "/assets/lightbox/cat2.jpg"},
+          {"device": "Mobile", "thumb": "/assets/lightbox/tree.jpg"}
         ]
       },
       {
-        "quickLinkName": "Casino",
+        "name": "Casino",
         "images": [
-          {"pc":  "pc"},
-          {"tablet":  "tablet"},
-          {"mobile":  "mobile"}
+          {"device": "Pc", "thumb": "/assets/lightbox/nature.jpg"},
+          {"device": "Tablet", "thumb": "/assets/lightbox/cat1.jpg"},
+          {"device": "Mobile", "thumb": "/assets/lightbox/cat2.jpg"}
         ]
       }
     ],
@@ -77,29 +79,30 @@
   },
   {
     "name": "Upcoming Games",
-    "children": [
+    "id": "333",
+    "description": [
       {
-        "gameName": "See",
+        "name": "See",
         "images": [
-          {"pc":  "pc"},
-          {"tablet":  "tablet"},
-          {"mobile":  "mobile"}
+          {"device": "Pc", "thumb": "/assets/lightbox/poppies.jpg"},
+          {"device": "Tablet", "thumb": "/assets/lightbox/tree.jpg"},
+          {"device": "Mobile", "thumb": "/assets/lightbox/fog.jpg"}
         ]
       },
       {
-        "gameName": "Catch cat",
+        "name": "Catch cat",
         "images": [
-          {"pc":  "pc"},
-          {"tablet":  "tablet"},
-          {"mobile":  "mobile"}
+          {"device": "Pc", "thumb": "/assets/lightbox/cat1.jpg"},
+          {"device": "Tablet", "thumb": "/assets/lightbox/cat2.jpg"},
+          {"device": "Mobile", "thumb": "/assets/lightbox/berries.jpg"}
         ]
       },
       {
-        "gameName": "Flower game",
+        "name": "Flower game",
         "images": [
-          {"pc":  "pc"},
-          {"tablet":  "tablet"},
-          {"mobile":  "mobile"}
+          {"device": "Pc", "thumb": "/assets/lightbox/berries.jpg"},
+          {"device": "Tablet", "thumb": "/assets/lightbox/fog.jpg"},
+          {"device": "Mobile", "thumb": "/assets/lightbox/nature.jpg"}
         ]
       }
     ],
@@ -115,29 +118,30 @@
   },
   {
     "name": "Recently played",
-    "children": [
+    "id": "444",
+    "description": [
       {
-        "recentlyGameName": "Captain",
+        "name": "Captain",
         "images": [
-          {"pc":  "pc"},
-          {"tablet":  "tablet"},
-          {"mobile":  "mobile"}
+          {"device": "Pc", "thumb": "/assets/lightbox/fog.jpg"},
+          {"device": "Tablet", "thumb": "/assets/lightbox/poppies.jpg"},
+          {"device": "Mobile", "thumb": "/assets/lightbox/cat1.jpg"}
         ]
       },
       {
-        "gameName": "Jungle",
+        "name": "Jungle",
         "images": [
-          {"pc":  "pc"},
-          {"tablet":  "tablet"},
-          {"mobile":  "mobile"}
+          {"device": "Pc", "thumb": "/assets/lightbox/cat2.jpg"},
+          {"device": "Tablet", "thumb": "/assets/lightbox/tree.jpg"},
+          {"device": "Mobile", "thumb": "/assets/lightbox/berries.jpg"}
         ]
       },
       {
-        "gameName": "Earth",
+        "name": "Earth",
         "images": [
-          {"pc":  "pc"},
-          {"tablet":  "tablet"},
-          {"mobile":  "mobile"}
+          {"device": "Pc", "thumb": "/assets/lightbox/poppies.jpg"},
+          {"device": "Tablet", "thumb": "/assets/lightbox/fog.jpg"},
+          {"device": "Mobile", "thumb": "/assets/lightbox/nature.jpg"}
         ]
       }
     ],
@@ -153,29 +157,30 @@
   },
   {
     "name": "Smart Images",
-    "children": [
+    "id": "555",
+    "description": [
       {
-        "recentlyGameName": "Captain",
+        "name": "Captain",
         "images": [
-          {"pc":  "pc"},
-          {"tablet":  "tablet"},
-          {"mobile":  "mobile"}
+          {"device": "Pc", "thumb": "/assets/lightbox/cat1.jpg"},
+          {"device": "Tablet", "thumb": "/assets/lightbox/poppies.jpg"},
+          {"device": "Mobile", "thumb": "/assets/lightbox/cat2.jpg"}
         ]
       },
       {
-        "gameName": "Jungle",
+        "name": "Jungle",
         "images": [
-          {"pc":  "pc"},
-          {"tablet":  "tablet"},
-          {"mobile":  "mobile"}
+          {"device": "Pc", "thumb": "/assets/lightbox/nature.jpg"},
+          {"device": "Tablet", "thumb": "/assets/lightbox/fog.jpg"},
+          {"device": "Mobile", "thumb": "/assets/lightbox/tree.jpg"}
         ]
       },
       {
-        "gameName": "Earth",
+        "name": "Earth",
         "images": [
-          {"pc":  "pc"},
-          {"tablet":  "tablet"},
-          {"mobile":  "mobile"}
+          {"device": "Pc", "thumb": "/assets/lightbox/cat1.jpg"},
+          {"device": "Tablet", "thumb": "/assets/lightbox/cat2.jpg"},
+          {"device": "Mobile", "thumb": "/assets/lightbox/fog.jpg"}
         ]
       }
     ],
