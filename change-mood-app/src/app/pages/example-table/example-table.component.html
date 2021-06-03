@@ -14,7 +14,7 @@
       <ng-container matColumnDef="description">
         <th mat-header-cell *matHeaderCellDef> Images </th>
 
-          <ng-container matColumnDef="expandedDetail">
+          <ng-container matColumnDef="expandedDesc">
             <td mat-cell *matCellDef="let element">
             <div class="expanded-wrapper" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
               <app-list-entities [data]="element.description"></app-list-entities>
@@ -26,11 +26,15 @@
       <!-- Percentage -->
       <ng-container matColumnDef="percentage">
         <th mat-header-cell *matHeaderCellDef> Percentage </th>
-        <td mat-cell *matCellDef="let element">
-          <div class="expanded-wrapper" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-            {{element.percentage}}
-          </div>
-        </td>
+
+        <ng-container matColumnDef="expandedPercentage">
+          <td mat-cell *matCellDef="let element">
+            <div class="expanded-wrapper" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+              <app-custom-slider [value]="element.percentage"></app-custom-slider>
+            </div>
+          </td>
+        </ng-container>
+
       </ng-container>
 
       <!-- Created Date -->

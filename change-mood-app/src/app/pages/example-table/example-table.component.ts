@@ -1,7 +1,7 @@
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import {throwError} from 'rxjs';
-import {GameTableService} from '../../services/game-table/game-table.service';
+import {HttpService} from '../../services/http/http.service';
 import {TableTypes} from '../../types/table-types';
 
 @Component({
@@ -24,16 +24,15 @@ export class ExampleTableComponent implements OnInit {
 
   public modeIcon = ['circle', 'rectangle'];
 
-  constructor(private gameService: GameTableService) { }
+  constructor(private http: HttpService) { }
 
   public ngOnInit(): void {
-    this.gameService.getInfoGames().subscribe((res) => {
+    this.http.getTableData().subscribe((res) => {
       if (!res?.length) {
         return null;
       }
 
-      this.mockupData = res;
-      this.dataSource = this.mockupData;
+      this.dataSource = res;
     }, ((error) => throwError(error)));
   }
 

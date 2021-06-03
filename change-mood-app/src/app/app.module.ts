@@ -5,6 +5,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSliderModule} from '@angular/material/slider';
 import { BrowserModule } from '@angular/platform-browser';
 
 import {MatTableModule} from '@angular/material/table';
@@ -25,6 +26,7 @@ import { ExampleTableComponent } from './pages/example-table/example-table.compo
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import {HttpService} from './services/http/http.service';
 import {GameTableService} from './services/game-table/game-table.service';
 import {UiService} from './services/ui/ui.service';
 import {WeatherService} from './services/weather/weather.service';
@@ -37,6 +39,7 @@ import { WeatherCardComponent } from './ui/weather-card/weather-card.component';
 import { CustomToggleComponent } from './components/custom-toggle/custom-toggle.component';
 import { CustomRadioButtonsComponent } from './components/custom-radio-buttons/custom-radio-buttons.component';
 import { ListEntitiesComponent } from './components/list-entities/list-entities.component';
+import { CustomSliderComponent } from './components/custom-slider/custom-slider.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +56,7 @@ import { ListEntitiesComponent } from './components/list-entities/list-entities.
     CustomToggleComponent,
     CustomRadioButtonsComponent,
     ListEntitiesComponent,
+    CustomSliderComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,10 +78,11 @@ import { ListEntitiesComponent } from './components/list-entities/list-entities.
     MatDividerModule,
     MatIconModule,
     MatButtonModule,
+    MatSliderModule,
 
     CustomLightBoxModule
   ],
-  providers: [WeatherService, UiService, GameTableService],
+  providers: [WeatherService, UiService, GameTableService, HttpService],
   // tslint:disable-next-line:object-literal-sort-keys
   bootstrap: [AppComponent],
 })

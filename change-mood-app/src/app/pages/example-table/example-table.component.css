@@ -103,3 +103,39 @@ tr.example-element-row:not(.example-expanded-row):active {
   margin-top: 2rem;
 }
 
+/**
+Table - classes for each column
+*/
+
+.mat-column-name {
+  width: 10%;
+}
+
+.mat-column-description {
+  width: 30%;
+}
+
+.mat-column-percentage {
+  width: 15%;
+}
+
+/*.mat-column-dateCreated {*/
+/*  width: 10%;*/
+/*}*/
+
+/*.mat-column-createdBy {*/
+/*  width: 5%;*/
+/*}*/
+
+/*.mat-column-lastUpdatedBy {*/
+/*  width: 5%;*/
+/*}*/
+
+.mat-column-visible {
+  width: 10%;
+}
+
+.mat-column-modeIcon {
+  width: 10%;
+}
+

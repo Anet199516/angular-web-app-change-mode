@@ -1,0 +1,10 @@
+<mat-slider
+  thumbLabel
+  [value]="value"
+  [displayWith]="formatLabel"
+  [tickInterval]="tickInterval"
+  [step]="step"
+  [min]="min"
+  [max]="max"
+  (click)="$event.stopPropagation()"
+  aria-label="units"></mat-slider>
