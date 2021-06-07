@@ -1,8 +1,12 @@
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
-import {throwError} from 'rxjs';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {Observable, Subscription} from 'rxjs';
+import {AppState} from '../../store/app.state';
+import * as TableActions from '../../store/table-practise/actions/table.actions';
 import {HttpService} from '../../services/http/http.service';
-import {TableTypes} from '../../types/table-types';
+import {selectTableData} from '../../store/table-practise/selectors/table.selectors';
+import {IModeIcon, TableTypes} from '../../types/table-types';
 
 @Component({
   selector: 'app-example-table',
@@ -16,7 +20,9 @@ import {TableTypes} from '../../types/table-types';
     ]),
   ],
 })
-export class ExampleTableComponent implements OnInit {
+export class ExampleTableComponent implements OnInit, OnDestroy {
+  private dataSourceSubs$: Subscription;
+
   public dataSource: TableTypes[];
   public mockupData: TableTypes[];
   public columnsToDisplay = ['name', 'description', 'percentage', 'dateCreated', 'createdBy', 'lastUpdatedBy', 'visible', 'modeIcon'];
@@ -24,16 +30,35 @@ export class ExampleTableComponent implements OnInit {
 
   public modeIcon = ['circle', 'rectangle'];
 
-  constructor(private http: HttpService) { }
+  constructor(private http: HttpService,
+              private store$: Store<AppState>) { }
 
   public ngOnInit(): void {
-    this.http.getTableData().subscribe((res) => {
-      if (!res?.length) {
-        return null;
-      }
+    this.store$.dispatch(TableActions.getData());
 
-      this.dataSource = res;
-    }, ((error) => throwError(error)));
+    this.dataSourceSubs$ = this.store$.select(selectTableData).subscribe(data => this.dataSource = data);
+  }
+
+  public onRowChanged(row): void {
+    this.store$.dispatch(TableActions.selectRow({row}));
+  }
+
+  public onVisibilityToggleChanged(toggleState: any, element: TableTypes): void {
+    this.store$.dispatch(TableActions.changeVisibleProperty({id: element.id, fields: {visible: toggleState}}));
+  }
+
+  public modeIconChanged(icon: IModeIcon[], element: TableTypes): void {
+    this.store$.dispatch(TableActions.changeModeIconProperty({id: element.id, fields: {modeIcon: icon}}));
+  }
+
+  public saveChanges(): void {
+    this.store$.dispatch(TableActions.saveChanges());
+  }
+
+  public ngOnDestroy(): void {
+    if (this.dataSourceSubs$) {
+      this.dataSourceSubs$.unsubscribe();
+    }
   }
 
 }

@@ -71,7 +71,7 @@
       <ng-container matColumnDef="visible">
         <th mat-header-cell *matHeaderCellDef> Visible </th>
         <td mat-cell *matCellDef="let element">
-            <app-custom-toggle [label]="!!element.visible ? 'Visible' : 'Not visible'" [checked]="element.visible"></app-custom-toggle>
+            <app-custom-toggle (onToggleChanged)="onVisibilityToggleChanged($event, element)" [label]="element.visible ? 'Visible' : 'Not visible'" [checked]="element.visible"></app-custom-toggle>
         </td>
       </ng-container>
 
@@ -79,22 +79,21 @@
       <ng-container matColumnDef="modeIcon">
         <th mat-header-cell *matHeaderCellDef> Mode Icon </th>
         <td mat-cell *matCellDef="let element">
-<!--          <div class="expanded-wrapper" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">-->
-            <app-custom-radio-buttons [labelsList]="element.modeIcon"></app-custom-radio-buttons>
-<!--          </div>-->
+            <app-custom-radio-buttons [labelsList]="element.modeIcon" (onModeIconChanged)="modeIconChanged($event, element)"></app-custom-radio-buttons>
         </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
       <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
-          [class.expanded]="expandedElement === element"
-          (click)="expandedElement = expandedElement === element ? null : element">
+          [class.expanded-row]="expandedElement === element"
+          (click)="expandedElement = expandedElement === element ? null : element;"
+          (click)="onRowChanged(element)">
       </tr>
     </table>
 
     <div>
       <button mat-raised-button color="warn">Reset</button>
-      <button mat-raised-button color="primary">Save</button>
+      <button (click)="saveChanges()" mat-raised-button color="primary">Save</button>
     </div>
    </section>
 </div>

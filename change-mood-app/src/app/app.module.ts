@@ -26,6 +26,7 @@ import { ExampleTableComponent } from './pages/example-table/example-table.compo
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import {HttpHelperService} from './services/http/http-helper.service';
 import {HttpService} from './services/http/http.service';
 import {GameTableService} from './services/game-table/game-table.service';
 import {UiService} from './services/ui/ui.service';
@@ -33,6 +34,7 @@ import {WeatherService} from './services/weather/weather.service';
 import {metaReducers, reducers} from './store/app.state';
 import {CityEffects} from './store/cities/effects/city.effects';
 import {LoginEffects} from './store/login/effects/login.effects';
+import {DataTableConfiguration} from './store/table-practise/effects/table.effects';
 import { AddCardComponent } from './ui/add-card/add-card.component';
 import { ErrorComponent } from './ui/error/error.component';
 import { WeatherCardComponent } from './ui/weather-card/weather-card.component';
@@ -67,7 +69,7 @@ import { CustomSliderComponent } from './components/custom-slider/custom-slider.
     AngularFireLite.forRoot(environment.config),
     StoreModule.forRoot(reducers, {metaReducers}),
     EffectsModule.forRoot([
-      CityEffects, LoginEffects,
+      CityEffects, LoginEffects, DataTableConfiguration
     ]),
     BrowserAnimationsModule,
     // Material Angular
@@ -82,7 +84,7 @@ import { CustomSliderComponent } from './components/custom-slider/custom-slider.
 
     CustomLightBoxModule
   ],
-  providers: [WeatherService, UiService, GameTableService, HttpService],
+  providers: [WeatherService, UiService, GameTableService, HttpService, HttpHelperService],
   // tslint:disable-next-line:object-literal-sort-keys
   bootstrap: [AppComponent],
 })

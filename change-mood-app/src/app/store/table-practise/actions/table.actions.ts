@@ -24,12 +24,12 @@ export const getDataFailed = createAction(
  */
 export const changeVisibleProperty = createAction(
   '[Table] Change visible property',
-  props<{id: string, value: boolean}>()
+  props<{id: string, fields: {[key: string]: any}}>()
 );
 
 export const changeModeIconProperty = createAction(
   '[Table] Change mode icon property',
-  props<{id: string, value: string}>()
+  props<{id: string, fields: {[key: string]: any}}>()
 );
 
 /**
@@ -76,4 +76,23 @@ export const removeRowSuccess = createAction(
 export const removeRowFailed = createAction(
   '[Table] Remove row failed',
   props<{error: string}>()
+);
+
+
+/**
+ * Save changes
+ */
+
+export const saveChanges = createAction(
+  '[Table] Save changes'
+);
+
+export const saveChangesSuccess = createAction(
+  '[Table] Save changes success',
+  props<{prop: TableTypes[]}>()
+);
+
+export const saveChangesFailed = createAction(
+  '[Table] Save changes failed',
+  props<{err: string}>()
 );

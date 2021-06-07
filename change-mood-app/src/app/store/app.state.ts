@@ -20,7 +20,7 @@ export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState
   return function (state: AppState, action: any): AppState {
     const newState = reducer(state, action);
 
-    console.log('Weather' + action.type, newState);
+    console.log(action.type, newState);
 
     return newState;
   }
